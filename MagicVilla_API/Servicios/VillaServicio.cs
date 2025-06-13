@@ -1,24 +1,25 @@
 ﻿using MagicVilla_API.Datos;
 using MagicVilla_API.Modelos;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace MagicVilla_API.Servicios
 {
-    public class MiServicio
+    public class VillaServicio
     {
         private readonly AplicationDbContext _dbContext;
-        public MiServicio(AplicationDbContext dbContext)
+        public VillaServicio(AplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public void ActualizarModelo(Villa modelo)
+        public async Task ActualizarModelo(Villa modelo)
         {
             // Marcar la entidad como modificada
             _dbContext.Entry(modelo).State = EntityState.Modified;
 
             // Guardar los cambios
-            _dbContext.SaveChanges();
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
