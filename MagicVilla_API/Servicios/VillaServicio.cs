@@ -7,8 +7,8 @@ namespace MagicVilla_API.Servicios
 {
     public class VillaServicio
     {
-        private readonly AplicationDbContext _dbContext;
-        public VillaServicio(AplicationDbContext dbContext)
+        private readonly ApplicationDbContext _dbContext;
+        public VillaServicio(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }

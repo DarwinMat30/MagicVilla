@@ -3,12 +3,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MagicVilla_API.Datos
 {
-    public class AplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public AplicationDbContext(DbContextOptions<AplicationDbContext> options) : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
         }
         public DbSet<Villa> Villas { get; set; }
+        public DbSet<NumeroVilla> NumerosVillas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
