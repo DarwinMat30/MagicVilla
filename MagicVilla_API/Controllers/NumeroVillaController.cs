@@ -5,6 +5,8 @@ using MagicVilla_API.Modelos.Dto;
 using MagicVilla_API.Repositorio;
 using MagicVilla_API.Repositorio.IRepositorio;
 using MagicVilla_API.Servicios;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +18,7 @@ namespace MagicVilla_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class NumeroVillaController : ControllerBase
     {
         private readonly ILogger<NumeroVillaController> _logger;

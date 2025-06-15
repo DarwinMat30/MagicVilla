@@ -5,6 +5,8 @@ using MagicVilla_API.Modelos.Dto;
 using MagicVilla_API.Repositorio;
 using MagicVilla_API.Repositorio.IRepositorio;
 using MagicVilla_API.Servicios;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +17,7 @@ using System.Threading.Tasks;
 namespace MagicVilla_API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class VillaController : ControllerBase
     {
